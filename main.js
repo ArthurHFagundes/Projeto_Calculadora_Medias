@@ -43,7 +43,7 @@ function adicionarLinha() {
     inputNotaAtividade.value = '';
 };
 
-//cria linhas adicionais ↴
+//cria linhas adicionais  (renderização)↴
 function atualizaTabela() {
     const corpoTabela = document.querySelector('tbody');
     corpoTabela.innerHTML = linhas;
@@ -53,7 +53,7 @@ function atualizaTabela() {
 function atualizaMediaFinal() {
     const mediaFinal = calculaMediaFinal();
 
-    document.getElementById("media-final-valor").innerHTML = mediaFinal;
+    document.getElementById("media-final-valor").innerHTML = mediaFinal.toFixed(2); // (toFixed) PARA LIMITAR AS CASAS DECIMAIS
     document.getElementById("media-final-resultado").innerHTML = mediaFinal >= notaMínima ? spanAprovado : spanReprovado;
 };
 
