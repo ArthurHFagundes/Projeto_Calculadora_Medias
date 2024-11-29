@@ -54,7 +54,7 @@ function atualizaTabela() {
 function atualizaMediaFinal() {
     const mediaFinal = calculaMediaFinal();
 
-    document.getElementById("media-final-valor").innerHTML = mediaFinal; // (toFixed) PARA LIMITAR AS CASAS DECIMAIS
+    document.getElementById("media-final-valor").innerHTML = mediaFinal.toFixed(2); // (toFixed) PARA LIMITAR AS CASAS DECIMAIS
     document.getElementById("media-final-resultado").innerHTML = mediaFinal >= notaMínima ? spanAprovado : spanReprovado;
 };
 
@@ -65,5 +65,5 @@ function calculaMediaFinal() {
         somaDasNotas += notas[i]; 
     }
 
-    return (somaDasNotas / notas.length).toFixed(2); // MÉDIA (soma-total / tamanho-total)
+    return somaDasNotas / notas.length; // MÉDIA (soma-total / tamanho-total)
 }
