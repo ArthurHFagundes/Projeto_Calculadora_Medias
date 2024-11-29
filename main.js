@@ -1,35 +1,36 @@
-const form = document.getElementById("form-atividade");
+const form = document.getElementById("form-atividade"); // CRIA UMA CONSTANTE REFERENTE AO ELEMENTO HTML COM ID
 const imgAprovado = '<img src="./images/aprovado.png" alt="Emoji celebrando"/>';
 const imgReprovado = '<img src="./images/reprovado.png" alt="Emoji triste"/>'
 const atividades = []; // CRIA UMA CONSTANTE EM ARRAY
 const notas = [];
-const spanAprovado = '<span class="resultado aprovado">Aprovado</span>'; // MOSTRA O RESULTADO EM FORMATO DE SPAN COM AS CLASSES (resultado aprovado)
+const spanAprovado = '<span class="resultado aprovado">Aprovado</span>'; // MOSTRA O RESULTADO EM FORMATO DE SPAN COM AS CLASSES (resultado & aprovado)
 const spanReprovado = '<span class="resultado reprovado">Reprovado</span>';
-const notaMínima = parseFloat(prompt('Digite a nota mínima: '));
 
+const notaMínima = parseFloat(prompt('Digite a nota mínima: ')); // PRIMEIRA COISA QUE APARECE NO SITE
 
-let linhas = ''; // CRIA UMA STRING VAZIA
+let linhas = ''; // CRIA UMA STRING VAZIA (para futuramente adicionar uma linha na tabela)
 
-form.addEventListener('submit', function(e) {
+form.addEventListener('submit', function(e) { // ELIMINA AS AÇÕES PADRÕES REFERENTES A CONSTANTE FORM (tipo um reset)
     e.preventDefault();
 
-    adicionarLinha();
+    adicionarLinha(); // EXECUTA A FUNÇÃO
     atualizaTabela();
     atualizaMediaFinal();
 })
 
+//cria o conteúdo da linha ↴
 function adicionarLinha() {
     const inputNomeAtividade = document.getElementById('nome-atividade');
     const inputNotaAtividade = document.getElementById('nota-atividade');
 
-    if (atividades.includes(inputNomeAtividade.value)) { // VERIFICA SE EXISTE JÁ EXISTE O NOME DA ATIVIDADE
+    if (atividades.includes(inputNomeAtividade.value)) { // (includes) VERIFICA SE EXISTE JÁ EXISTE O NOME DA ATIVIDADE
         alert(`A atividade "${inputNomeAtividade.value}" já existe`); 
     }
     else {
-        atividades.push(inputNomeAtividade.value); // (PUSH) PARA ADICIONAR INFORMAÇÕES NO ARRAY
+        atividades.push(inputNomeAtividade.value); // (push) PARA ADICIONAR INFORMAÇÕES NO ARRAY
         notas.push(parseFloat(inputNotaAtividade.value)); // (parseFloat) PARA TRANSFORMAR A INFORMAÇÃO EM UM NÚMERO
     
-        //para adcionar uma linha ↴
+        //para adicionar uma linha na tabela ↴ 
         let linha = '<tr>';
         linha += `<td>${inputNomeAtividade.value}</td>`; // (+=) IGUAL A " linha = linha + conteudo"
         linha += `<td>${inputNotaAtividade.value}</td>`; // (td) DADO DA TABELA 
@@ -39,21 +40,21 @@ function adicionarLinha() {
         linhas += linha;
     }
 
-    inputNomeAtividade.value = ''; // LIMPA OS INPUTS PODE SER REUTILIZADO
+    inputNomeAtividade.value = ''; // LIMPA OS INPUTS (pode ser reutilizado)
     inputNotaAtividade.value = '';
 };
 
-//cria linhas adicionais  (renderização)↴
+//cria linhas adicionais (renderização)↴
 function atualizaTabela() {
     const corpoTabela = document.querySelector('tbody');
-    corpoTabela.innerHTML = linhas;
+    corpoTabela.innerHTML = linhas; // (innerHTML) PARA INSERIR INFORMAÇÕES DENTRO DO HTML
 };
 
-//atualizando e inserindo informaçõesn o rodapé ↴
+//atualizando e inserindo informações no rodapé ↴
 function atualizaMediaFinal() {
     const mediaFinal = calculaMediaFinal();
 
-    document.getElementById("media-final-valor").innerHTML = mediaFinal.toFixed(2); // (toFixed) PARA LIMITAR AS CASAS DECIMAIS
+    document.getElementById("media-final-valor").innerHTML = mediaFinal; // (toFixed) PARA LIMITAR AS CASAS DECIMAIS
     document.getElementById("media-final-resultado").innerHTML = mediaFinal >= notaMínima ? spanAprovado : spanReprovado;
 };
 
@@ -64,5 +65,5 @@ function calculaMediaFinal() {
         somaDasNotas += notas[i]; 
     }
 
-    return somaDasNotas / notas.length;
+    return (somaDasNotas / notas.length).toFixed(2); // MÉDIA (soma-total / tamanho-total)
 }
