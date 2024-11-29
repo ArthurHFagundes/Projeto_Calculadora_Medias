@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Médias</title>
+    <link rel="shortcut icon" href="./images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./main.css"/>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="./images/logo.png" alt="Logo do site"/>
+            <h1>Calculadora de Médias</h1>
+        </header>
+        <form id="form-atividade">
+            <input id='nome-atividade' type="text" placeholder="Nome da atividade" required/>
+            <input id='nota-atividade' type="number" placeholder="Nota" step='any' min="0" max="10" required/>
+            <button type="submit">Adicionar +</button>      <!--!! adicionei ↗ !!-->
+        </form>
+        <table cellspacing="0"> <!-- REMOVER O ESPAÇAMENTO ENTRE AS CÉLULAS DA TABELA -->
+            <thead> <!-- CABEÇALHO -->
+                <tr> <!-- LINHA DA TABELA -->
+                    <th> <!-- CÉLULA DA LINHA DA TABELA DO CABEÇALHO -->
+                        Nome da atividade
+                    </th>
+                    <th>Nota da atividade</th>
+                    <th>Aprovado?</th>
+                </tr>
+            </thead>
+            <tbody> <!-- CORPO -->
+            </tbody>
+            <tfoot> <!-- RODAPÉ -->
+                <tr>
+                    <td>Média final</td>
+                    <td id="media-final-valor">---</td>
+                    <td id="media-final-resultado"><span>---</span></td> <!-- ACHO QUE É MELHOR FAZER NO ESTILO DO JAVASCRIPT-->
+                </tr>
+            </tfoot>
+        </table>    
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

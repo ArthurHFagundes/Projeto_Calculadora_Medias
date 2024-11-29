@@ -1,0 +1,121 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body
+{
+    background-color: #E7E7E7;
+    padding-top: 100px;
+}
+
+header
+{
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+header img
+{
+    height: 36px;
+    margin-right: 16px;
+}
+
+header h1
+{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.container
+{
+    max-width: 960px; /* UTILIZANDO OS DOIS FAZ COM QUE O TAMANHO SE AJUSTE CONFORME O TAMANHO DA TELA (máx:960px) */
+    width: 100%; /* PODE SER UTILIZADO SEMPRE (só ajustar o max-width) */
+    margin: 0 auto;
+}
+
+form
+{
+    display: flex; /* REALINHAR ELEMENTOS */
+    /*max-width: 640px;*/ /* !!exclui!! */
+    width: 100%;
+    /*justify-content: space-between;*/ /* !!exclui!! */
+    margin-bottom: 56px;
+}
+
+form input
+{
+    background-color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-bottom: 2px solid #000; /* ESTABELECER 3 PARÂMETROS PARA A BORDA */
+    padding: 8px;
+    margin-left: 8px; /* !!adicionei!! */
+}
+
+form button
+{
+    background-color: #009432;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    cursor:pointer;
+    padding: 8px;
+    margin-left: 8px; /* !!adicionei!! */
+}
+
+form input::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+}
+
+table
+{
+    width: 100%; /* OCUPA TODO ESPAÇO DISPONÍVEL */
+}
+
+table th
+{
+    border-bottom: 2px solid #000;
+    padding: 16px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+table td
+{
+    padding: 16px 0px;
+    text-align: center; /* ALINHAR O DADO DA TABELA AO CENTRO DO th DO CABEÇALHO */
+    font-size: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+}
+
+table td img
+{
+    height: 30px;
+}
+
+.resultado
+{
+    padding: 8px;
+    font-weight:bold;
+    color:#fff;
+    background-color: #000;
+    border-radius: 3px;
+}
+
+.aprovado
+{
+    background-color: #009432;
+}
+
+.reprovado
+{
+    background-color: crimson;
+}
